@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- General knowlege -->
+<category><pattern>HI</pattern><template>Hello! I am your security assistant. You can ask me questions about this machine's security. When you are finished chatting, just type 'exit' to quit this program. Ready when you are.</template></category>
+<category><pattern>HELLO</pattern><template><srai>HI</srai></template></category>
+<category><pattern>HELP</pattern><template>Ask me security questions. When you are finished chatting, just type 'exit' to quit this program.</template></category>
+<category><pattern>WHAT DO I DO</pattern><template><srai>HELP</srai></template></category>
+<category><pattern>WHAT IS YOUR FAVORITE TOPIC</pattern><template>I like to talk about computer security.</template></category>
+<category><pattern>WHAT DO YOU LIKE TO TALK ABOUT</pattern><template><srai>WHAT IS YOUR FAVORITE TOPIC</srai></template></category>
+<category><pattern>WHAT TOPICS DO YOU KNOW</pattern><template>I am familiar with general security assessment, audit, selinux, security updates, and integrity testing.</template></category>
+<category><pattern>WHAT TOPICS CAN YOU TALK ABOUT</pattern><template><srai>WHAT TOPICS DO YOU KNOW</srai></template></category>
+<category><pattern>WHAT DO YOU KNOW ABOUT</pattern><template><srai>WHAT TOPICS DO YOU KNOW</srai></template></category>
+
+<category><pattern>WHAT IS THE TIME</pattern><template><system>date "+%X"</system></template></category>
+<category><pattern>WHAT IS TODAY</pattern><template><system>date "+%A"</system></template></category>
+<category><pattern>WHAT IS THE DATE</pattern><template><system>date "+%x"</system></template></category>
+
+<!-- HOW BIG IS YOUR BRAIN -->
+<!-- HOW MANY RULES DO YOU KNOW -->
+
+<category><pattern>*</pattern><template><random><li>I am not sure what you are asking. Perhaps you can re-phrase it?.</li><li>That seems to be off topic, perhaps you can ask another question?</li></random></template></category>
+
+</aiml>
+

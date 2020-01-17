@@ -1,0 +1,11 @@
+TEMPLATE   = app
+LANGUAGE   = C++
+CONFIG    += console
+INCLUDEPATH += . include
+QT        += xml network 
+QT        -= gui
+HEADERS   += include/aimlparser.h
+SOURCES   += src/main.cpp src/aimlparser.cpp
+DEPENDPATH  += include src
+MOC_DIR     = tmp
+OBJECTS_DIR = tmp

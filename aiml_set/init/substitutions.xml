@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<substitutions>
+  <substitution>
+    <old>&quot;</old>
+    <new></new>
+  </substitution>
+  <substitution>
+    <old>/</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>\(</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>\)</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>`</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>,</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>;</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>:</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>&amp;</old>
+    <new> </new>
+  </substitution>
+  <substitution>
+    <old>\bbecuse\b</old>
+    <new>because</new>
+  </substitution>
+  <substitution>
+    <old>\bbeleive\b</old>
+    <new>believe</new>
+  </substitution>
+  <substitution>
+    <old>\bbecasue\b</old>
+    <new>because</new>
+  </substitution>
+  <substitution>
+    <old>\bbecuase\b</old>
+    <new>because</new>
+  </substitution>
+  <substitution>
+    <old>\bbecouse\b</old>
+    <new>because</new>
+  </substitution>
+  <substitution>
+    <old>\brealy\b</old>
+    <new>really</new>
+  </substitution>
+  <substitution>
+    <old>\biamusing\b</old>
+    <new>I am using</new>
+  </substitution>
+  <substitution>
+    <old>\byeah\b</old>
+    <new>yes</new>
+  </substitution>
+  <substitution>
+    <old>\byep\b</old>
+    <new>yes</new>
+  </substitution>
+  <substitution>
+    <old>\byuo\b</old>
+    <new>you</new>
+  </substitution>
+  <substitution>
+    <old>\bwanna\b</old>
+    <new>want to</new>
+  </substitution>
+  <substitution>
+    <old>\byou'd\b</old>
+    <new>you would</new>
+  </substitution>
+  <substitution>
+    <old>\byou're\b</old>
+    <new>you are</new>
+  </substitution>
+  <substitution>
+    <old>\byou re\b</old>
+    <new>you are</new>
+  </substitution>
+  <substitution>
+    <old>\byou've\b</old>
+    <new>you have</new>
+  </substitution>
+  <substitution>
+    <old>\byou ve\b</old>
+    <new>you have</new>
+  </substitution>
+  <substitution>
+    <old>\byou'll\b</old>
+    <new>you will</new>
+  </substitution>
+  <substitution>
+    <old>\byou ll\b</old>
+    <new>you will</new>
+  </substitution>
+  <substitution>
+    <old>\byoure\b</old>
+    <new>you are</new>
+  </substitution>
+  <substitution>
+    <old>\bdidnt\b</old>
+    <new>did not</new>
+  </substitution>
+  <substitution>
+    <old>\bdidn't\b</old>
+    <new>did not</new>
+  </substitution>
+  <substitution>
+    <old>\bdid'nt\b</old>
+    <new>did not</new>
+  </substitution>
+  <substitution>
+    <old>\bcouldn't\b</old>
+    <new>could not</new>
+  </substitution>
+  <substitution>
+    <old>\bcouldn t\b</old>
+    <new>could not</new>
+  </substitution>
+  <substitution>
+    <old>\bdidn't\b</old>
+    <new>did not</new>
+  </substitution>
+  <substitution>
+    <old>\bdidn t\b</old>
+    <new>did not</new>
+  </substitution>
+  <substitution>
+    <old>\bain't\b</old>
+    <new>is not</new>
+  </substitution>
+  <substitution>
+    <old>\bain t\b</old>
+    <new>is not</new>
+  </substitution>
+  <substitution>
+    <old>\bisn't\b</old>
+    <new>is not</new>
+  </substitution>
+  <substitution>
+    <old>\bisn t\b</old>
+    <new>is not</new>
+  </substitution>
+  <substitution>
+    <old>\bisnt\b</old>
+    <new>is not</new>
+  </substitution>
+  <substitution>
+    <old>\bit's\b</old>
+    <new>it is</new>
+  </substitution>
+  <substitution>
+    <old>\bit s\b</old>
+    <new>it is</new>
+  </substitution>
+  <substitution>
+    <old>\bare'nt\b</old>
+    <new>are not</new>
+  </substitution>
+  <substitution>
+    <old>\barent\b</old>
+    <new>are not</new>
+  </substitution>
+  <substitution>
+    <old>\baren't\b</old>
+    <new>are not</new>
+  </substitution>
+  <substitution>
+    <old>\baren t\b</old>
+    <new>are not</new>
+  </substitution>
+  <substitution>
+    <old>\barn t\b</old>
+    <new>are not</new>
+  </substitution>
+  <substitution>
+    <old>\bwhere's\b</old>
+    <new>where is</new>
+  </substitution>
+  <substitution>
+    <old>\bwhere s\b</old>
+    <new>where is</new>
+  </substitution>
+  <substitution>
+    <old>\bhaven't\b</old>
+    <new>have not</new>
+  </substitution>
+  <substitution>
+    <old>\bhavent\b</old>
+    <new>have not</new>
+  </substitution>
+  <substitution>
+    <old>\bhasn't\b</old>
+    <new>has not</new>
+  </substitution>
+  <substitution>
+    <old>\bhasn t\b</old>
+    <new>has not</new>
+  </substitution>
+  <substitution>
+    <old>\bweren t\b</old>
+    <new>were not</new>
+  </substitution>
+  <substitution>
+    <old>\bweren't\b</old>
+    <new>were not</new>
+  </substitution>
+  <substitution>
+    <old>\bwerent\b</old>
+    <new>were not</new>
+  </substitution>
+  <substitution>
+    <old>\bcan't\b</old>
+    <new>can not</new>
+  </substitution>
+  <substitution>
+    <old>\bcan t\b</old>
+    <new>can not</new>
+  </substitution>
+  <substitution>
+    <old>\bcant\b</old>
+    <new>can not</new>
+  </substitution>
+  <substitution>
+    <old>\bcannot\b</old>
+    <new>can not</new>
+  </substitution>
+  <substitution>
+    <old>\bwhos\b</old>
+    <new>who is</new>
+  </substitution>
+  <substitution>
+    <old>\bhow's\b</old>
+    <new>how is</new>
+  </substitution>
+  <substitution>
+    <old>\bhow s\b</old>
+    <new>how is</new>
+  </substitution>
+  <substitution>
+    <old>\bhow'd\b</old>
+    <new>how did</new>
+  </substitution>
+  <substitution>
+    <old>\bhow d\b</old>
+    <new>how did</new>
+  </substitution>
+  <substitution>
+    <old>\bhows\b</old>
+    <new>how is</new>
+  </substitution>
+  <substitution>
+    <old>\bwhats\b</old>
+    <new>what is</new>
+  </substitution>
+  <substitution>
+    <old>\bname's\b</old>
+    <new>name is</new>
+  </substitution>
+  <substitution>
+    <old>\bwho's\b</old>
+    <new>who is</new>
+  </substitution>
+  <substitution>
+    <old>\bwho s\b</old>
+    <new>who is</new>
+  </substitution>
+  <substitution>
+    <old>\bwhat's\b</old>
+    <new>what is</new>
+  </substitution>
+  <substitution>
+    <old>\bwhat s\b</old>
+    <new>what is</new>
+  </substitution>
+  <substitution>
+    <old>\bthat's\b</old>
+    <new>that is</new>
+  </substitution>
+  <substitution>
+    <old>\bthere's\b</old>
+    <new>there is</new>
+  </substitution>
+  <substitution>
+    <old>\bthere s\b</old>
+    <new>there is</new>
+  </substitution>
+  <substitution>
+    <old>\btheres\b</old>
+    <new>there is</new>
+  </substitution>
+  <substitution>
+    <old>\bthats\b</old>
+    <new>that is</new>
+  </substitution>
+  <substitution>
+    <old>\bwhats\b</old>
+    <new>what is</new>
+  </substitution>
+  <substitution>
+    <old>\bdoesn't\b</old>
+    <new>does not</new>
+  </substitution>
+  <substitution>
+    <old>\bdoesn t\b</old>
+    <new>does not</new>
+  </substitution>
+  <substitution>
+    <old>\bdoesnt\b</old>
+    <new>does not</new>
+  </substitution>
+  <substitution>
+    <old>\bdon't\b</old>
+    <new>do not</new>
+  </substitution>
+  <substitution>
+    <old>\bdon t\b</old>
+    <new>do not</new>
+  </substitution>
+  <substitution>
+    <old>\bdont\b</old>
+    <new>do not</new>
+  </substitution>
+  <substitution>
+    <old>\bdo nt\b</old>
+    <new>do not</new>
+  </substitution>
+  <substitution>
+    <old>\bdo'nt\b</old>
+    <new>do not</new>
+  </substitution>
+  <substitution>
+    <old>\bwon't\b</old>
+    <new>will not</new>
+  </substitution>
+  <substitution>
+    <old>\bwont\b</old>
+    <new>will not</new>
+  </substitution>
+  <substitution>
+    <old>\bwon t\b</old>
+    <new>will not</new>
+  </substitution>
+  <substitution>
+    <old>\blet's\b</old>
+    <new>let us</new>
+  </substitution>
+  <substitution>
+    <old>\bthey're\b</old>
+    <new>they are</new>
+  </substitution>
+  <substitution>
+    <old>\bthey re\b</old>
+    <new>they are</new>
+  </substitution>
+  <substitution>
+    <old>\bwasn't\b</old>
+    <new>was not</new>
+  </substitution>
+  <substitution>
+    <old>\bwasn t\b</old>
+    <new>was not</new>
+  </substitution>
+  <substitution>
+    <old>\bwasnt\b</old>
+    <new>was not</new>
+  </substitution>
+  <substitution>
+    <old>\bhadn't\b</old>
+    <new>had not</new>
+  </substitution>
+  <substitution>
+    <old>\bhadn t\b</old>
+    <new>had not</new>
+  </substitution>
+  <substitution>
+    <old>\bwouldn't\b</old>
+    <new>would not</new>
+  </substitution>
+  <substitution>
+    <old>\bwouldn t\b</old>
+    <new>would not</new>
+  </substitution>
+  <substitution>
+    <old>\bwouldnt\b</old>
+    <new>would not</new>
+  </substitution>
+  <substitution>
+    <old>\bshouldn't\b</old>
+    <new>should not</new>
+  </substitution>
+  <substitution>
+    <old>\bshouldnt\b</old>
+    <new>should not</new>
+  </substitution>
+  <substitution>
+    <old>\bfavourite\b</old>
+    <new>favorite</new>
+  </substitution>
+  <substitution>
+    <old>\bcolour\b</old>
+    <new>color</new>
+  </substitution>
+  <substitution>
+    <old>\bwe'll\b</old>
+    <new>we will</new>
+  </substitution>
+  <substitution>
+    <old>\bwe ll\b</old>
+    <new>we will</new>
+  </substitution>
+  <substitution>
+    <old>\bhe'll\b</old>
+    <new>he will</new>
+  </substitution>
+  <substitution>
+    <old>\bhe ll\b</old>
+    <new>he will</new>
+  </substitution>
+  <substitution>
+    <old>\bi'll\b</old>
+    <new>I will</new>
+  </substitution>
+  <substitution>
+    <old>\bive\b</old>
+    <new>I have</new>
+  </substitution>
+  <substitution>
+    <old>\bi've\b</old>
+    <new>I have</new>
+  </substitution>
+  <substitution>
+    <old>\bi ve\b</old>
+    <new>I have</new>
+  </substitution>
+  <substitution>
+    <old>\bi'd\b</old>
+    <new>I would</new>
+  </substitution>
+  <substitution>
+    <old>\bi'm\b</old>
+    <new>I am</new>
+  </substitution>
+  <substitution>
+    <old>\bi m\b</old>
+    <new>I am</new>
+  </substitution>
+  <substitution>
+    <old>\biamasking\b</old>
+    <new>I am asking</new>
+  </substitution>
+  <substitution>
+    <old>\biamdoing\b</old>
+    <new>I am doing</new>
+  </substitution>
+  <substitution>
+    <old>\biamok\b</old>
+    <new>I am ok</new>
+  </substitution>
+  <substitution>
+    <old>\ba\.</old>
+    <new>a</new>
+  </substitution>
+  <substitution>
+    <old>\bb\.</old>
+    <new>b</new>
+  </substitution>
+  <substitution>
+    <old>\bc\.</old>
+    <new>c</new>
+  </substitution>
+  <substitution>
+    <old>\bd\.</old>
+    <new>d</new>
+  </substitution>
+  <substitution>
+    <old>\be\.</old>
+    <new>e</new>
+  </substitution>
+  <substitution>
+    <old>\bf\.</old>
+    <new>f</new>
+  </substitution>
+  <substitution>
+    <old>\bg\.</old>
+    <new>g</new>
+  </substitution>
+  <substitution>
+    <old>\bh\.</old>
+    <new>h</new>
+  </substitution>
+  <substitution>
+    <old>\bi\.</old>
+    <new>i</new>
+  </substitution>
+  <substitution>
+    <old>\bj\.</old>
+    <new>j</new>
+  </substitution>
+  <substitution>
+    <old>\bk\.</old>
+    <new>k</new>
+  </substitution>
+  <substitution>
+    <old>\bl\.</old>
+    <new>l</new>
+  </substitution>
+  <substitution>
+    <old>\bm\.</old>
+    <new>m</new>
+  </substitution>
+  <substitution>
+    <old>\bn\.</old>
+    <new>n</new>
+  </substitution>
+  <substitution>
+    <old>\bp\.</old>
+    <new>p</new>
+  </substitution>
+  <substitution>
+    <old>\bo\.</old>
+    <new>o</new>
+  </substitution>
+  <substitution>
+    <old>\bq\.</old>
+    <new>q</new>
+  </substitution>
+  <substitution>
+    <old>\br\.</old>
+    <new>r</new>
+  </substitution>
+  <substitution>
+    <old>\bs\.</old>
+    <new>s</new>
+  </substitution>
+  <substitution>
+    <old>\bt\.</old>
+    <new>t</new>
+  </substitution>
+  <substitution>
+    <old>\bu\.</old>
+    <new>u</new>
+  </substitution>
+  <substitution>
+    <old>\bv\.</old>
+    <new>v</new>
+  </substitution>
+  <substitution>
+    <old>\bw\.</old>
+    <new>w</new>
+  </substitution>
+  <substitution>
+    <old>\bx\.</old>
+    <new>x</new>
+  </substitution>
+  <substitution>
+    <old>\by\.</old>
+    <new>y</new>
+  </substitution>
+  <substitution>
+    <old>\bz\.</old>
+    <new>z</new>
+  </substitution>
+  <substitution>
+    <old>'s</old>
+    <new> s</new>
+  </substitution>
+  <substitution>
+    <old>\bteh\b</old>
+    <new>the</new>
+  </substitution>
+  <substitution>
+    <old>\bconfog\b</old>
+    <new>config</new>
+  </substitution>
+  <substitution>
+    <old>\bperrmisive\b</old>
+    <new>permissive</new>
+  </substitution>
+  <substitution>
+    <old>\bscanok\b</old>
+    <new>scan ok</new>
+  </substitution>
+  <substitution>
+    <old>\bwaht\b</old>
+    <new>what</new>
+  </substitution>
+</substitutions>

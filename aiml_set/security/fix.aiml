@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Redirections for fixes -->
+<category><pattern>FIX SECURITY UPDATES</pattern><template><srai>apply security updates</srai></template></category>
+<category><pattern>FIX SCAP SCAN</pattern><template><think><system>cat ssg-fedora-xccdf.xml.patch | patch -p 0</system><set name="scap_scan"> </set></think>Fix applied</template></category>
+<category><pattern>FIX SELINUX</pattern><template><condition><li name="problem" value="selinux enforcement"><srai>enable selinux</srai></li><li name="problem" value="selinux enabled">This can't be fixed automatically. You need to edit /etc/selinux/config to enable selinux and reboot.</li></condition></template></category>
+
+<category><pattern>FIX INTEGRITY</pattern><template>It looks like you recently updated the system. Do you want to update the integrity database</template></category>
+
+<!-- FIXME - horrible hack. Should use that -->
+<category><pattern>YES</pattern><template><srai>reset integrity</srai><think><set name="int_scan"> </set></think></template></category>
+
+<category><pattern>CAN YOU FIX *</pattern><template><srai>fix <star index="1"/></srai></template></category>
+<category><pattern>CAN YOU FIX</pattern><template><srai>can you fix it</srai></template></category>
+
+</aiml>

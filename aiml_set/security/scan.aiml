@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Problem specific -->
+<category><pattern>SCAN NOW</pattern><template><condition><li name="subject" value="scap scan"><srai>config scan now</srai></li><li name="subject" value="integrity"><srai>integrity scan now</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>IS THE SCAN OK</pattern><template><condition><li name="subject" value="scap scan"><srai>is the config scan ok</srai></li><li name="subject" value="integrity"><srai>is the integrity scan ok</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>WAS THE SCAN OK</pattern><template><condition><li name="subject" value="scap scan"><srai>is the config scan ok</srai></li><li name="subject" value="integrity"><srai>is the integrity scan ok</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>ARE THERE PROBLEMS WITH THE SCAN</pattern><template><condition><li name="subject" value="scap scan"><srai>are there problems with the config scan</srai></li><li name="subject" value="integrity"><srai>are there problems with the integrity scan</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>ARE THERE PROBLEMS IN THE SCAN</pattern><template><condition><li name="subject" value="scap scan"><srai>are there problems with the config scan</srai></li><li name="subject" value="integrity"><srai>are there problems with the integrity scan</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>WERE THERE PROBLEMS WITH THE SCAN</pattern><template><condition><li name="subject" value="scap scan"><srai>are there problems with the config scan</srai></li><li name="subject" value="integrity"><srai>are there problems with the integrity scan</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>WERE THERE PROBLEMS IN THE SCAN</pattern><template><condition><li name="subject" value="scap scan"><srai>are there problems with the config scan</srai></li><li name="subject" value="integrity"><srai>are there problems with the integrity scan</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>HAS THE SYSTEM BEEN SCANNED RECENTLY</pattern><template><condition><li name="subject" value="scap scan"><srai>has the system configuration been scanned recently</srai></li><li name="subject" value="integrity"><srai>has the integrity been scanned recently</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+<category><pattern>HAS THE SYSTEM BEEN SCANNED</pattern><template><condition><li name="subject" value="scap scan"><srai>has the configuration been scanned</srai></li><li name="subject" value="integrity"><srai>has the integrity been scanned</srai></li><li>Please restate for config or integrity</li></condition></template></category>
+
+
+</aiml>

@@ -1,0 +1,64 @@
+#!/bin/sh
+# aide [--scan] [--changed] [--new]
+
+file="tmp/integrity.log"
+if [ $# -eq 1 ] ; then
+	if [ $1 = "--scan" ] ; then
+		aide -c utils/aide.conf -C > $file
+		res="$?"
+	else
+		res="9"
+	fi
+else
+	res="9"
+fi
+changed=`cat $file | awk '$0 ~ " Changed files" { print $3 }'` 
+new=`cat $file | awk '$0 ~ " Added files" { print $3 }'`
+not_empty=`cat $file | awk '$0 ~ "Summary" { print $0 }'`
+# Not going to worry about deleted files. Not exactly a threat.
+#deleted=`cat $file | awk '$0 ~ " Removed files" { print $3 }'`
+if [ "$res" -gt 10 ] ; then
+	echo "error"
+	rm $file
+	exit 1
+elif [ "$res" -eq 0 ] ; then
+	echo "pass"
+	exit 0
+elif [ "$res" -lt 9 ] ; then
+	echo "fail"
+	exit 1
+fi
+if [ ! -f $file ] ; then
+	echo "error"
+	exit 1
+fi
+if [ x"$not_empty" = "x" ] ; then
+	changed="0"
+	new="0"
+fi
+if [ $# -eq 0 ] ; then
+	if [ "$changed" != "0" ] ; then 
+		echo "changed"
+	fi
+	if [ "$new" != "0" ] ; then 
+		echo "new"
+	fi
+elif [ $# -eq 1 ] ; then
+	if [ "$1" = "--changed" ] ; then
+		echo "$changed"
+	elif [ "$1" = "--new" ] ; then
+		echo "$new"
+	elif [ "$1" = "--explain" ] ; then
+		if [ "$changed" != "0" ] ; then
+			echo "$changed files changed in content"
+		fi
+		if [ "$new" != "0" ] ; then
+			echo "$new files were added to the system"
+		fi
+	elif [ "$1" = "--new-files" ] ; then
+		cat $file | grep '^added:' | awk '{ print $2 }'
+	elif [ "$1" = "--changed-files" ] ; then
+		cat $file | grep '^changed:' | awk '{ print $2 }'
+	fi
+fi
+

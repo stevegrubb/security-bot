@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Update specific -->
+<!-- num_updates and num_sec_updates are in vars.xml -->
+
+<!-- Name the packages to update -->
+<category><pattern>PACKAGES TO UPDATE</pattern><template><system>dnf -q check-update 2>/dev/null | grep -v '^$' | awk '{ print $1 }'</system><think><set name="subject">updates</set></think></template></category>
+<category><pattern>WHAT PACKAGES NEED UPDATING</pattern><template><srai>packages to update</srai></template></category>
+<category><pattern>WHAT PACKAGES NEED UPDATES</pattern><template><srai>packages to update</srai></template></category>
+<category><pattern>WHAT NEEDS UPDATING</pattern><template><srai>packages to update</srai></template></category>
+<category><pattern>WHAT NEEDS UPDATES</pattern><template><srai>packages to update</srai></template></category>
+<category><pattern>WHAT UPDATES ARE NEEDED</pattern><template><srai>packages to update</srai></template></category>
+<category><pattern>WHICH UPDATES ARE NEEDED</pattern><template><srai>packages to update</srai></template></category>
+
+<category><pattern>SECURITY PACKAGES TO UPDATE</pattern><template><system>dnf --refresh -q --security check-update 2>/dev/null | grep -v '^$' | awk '{ print $1 }'</system><think><set name="subject">security updates</set></think></template></category>
+<category><pattern>WHAT SECURITY UPDATES ARE NEEDED</pattern><template><srai>security packages to update</srai></template></category>
+<category><pattern>WHAT PACKAGES NEED SECURITY UPDATES</pattern><template><srai>security packages to update</srai></template></category>
+<category><pattern>WHAT NEEDS SECURITY UPDATES</pattern><template><srai>security packages to update</srai></template></category>
+<category><pattern>WHAT SECURITY UPDATES ARE NEEDED</pattern><template><srai>security packages to update</srai></template></category>
+<category><pattern>WHICH SECURITY UPDATES ARE NEEDED</pattern><template><srai>security packages to update</srai></template></category>
+
+<!-- Puts the number in a variable -->
+<category><pattern>NUM SECURITY UPDATES</pattern><template><think><set name="num_sec_updates"><system>dnf --security check-update 2>/dev/null | grep needed | awk '{ print $1 }'</system></set></think><think><set name="subject">security updates</set></think></template></category>
+<category><pattern>NUM UPDATES</pattern><template><think><set name="num_updates"><system>dnf check-update 2>/dev/null | egrep -v '^$|^Loaded plugins' | wc -l</system></set></think><think><set name="subject">updates</set></think></template></category>
+
+<!-- init and returns number -->
+<category><pattern>COUNT UPDATES</pattern><template><condition><li name="num_updates" value="-1"><srai>num updates</srai><get name="num_updates"/></li><li><get name="num_updates"/></li></condition></template></category>
+<category><pattern>COUNT SECURITY UPDATES</pattern><template><condition><li name="num_sec_updates" value="-1"><srai>num security updates</srai><get name="num_sec_updates"/></li><li><get name="num_sec_updates"/></li></condition></template></category>
+
+<!-- Conditional init only -->
+<category><pattern>CHECK UPDATES</pattern><template><condition><li name="num_updates" value="-1"><srai>num updates</srai></li></condition></template></category>
+<category><pattern>CHECK SECURITY UPDATES</pattern><template><condition><li name="num_sec_updates" value="-1"><srai>num security updates</srai></li></condition></template></category>
+
+<!-- How many - returns a number -->
+<category><pattern>HOW MANY UPDATES</pattern><template><srai>count updates</srai></template></category>
+<category><pattern>HOW MANY SECURITY UPDATES</pattern><template><srai>count security updates</srai></template></category>
+<category><pattern>HOW MANY ARE SECURITY UPDATES</pattern><template><srai>count security updates</srai></template></category>
+<category><pattern>HOW MANY UPDATES *</pattern><template><srai>count updates</srai></template></category>
+<category><pattern>HOW MANY SECURITY UPDATES *</pattern><template><srai>count security updates</srai></template></category>
+<category><pattern>HOW MANY PACKAGES NEED UPDATING</pattern><template><srai>count updates</srai></template></category>
+<category><pattern>HOW MANY PACKAGES NEED SECURITY UPDATING</pattern><template><srai>count security updates</srai></template></category>
+
+<!-- Variations on if update is needed -->
+<category><pattern>ARE THERE UPDATES</pattern><template><condition name="num_updates" value="-1"><srai>check updates</srai></condition><condition><li name="num_updates" value="0">No</li><li>Yes, there are <get name="num_updates"/> updates needed</li></condition></template></category>
+<category><pattern>ARE THERE SECURITY UPDATES</pattern><template><condition name="num_sec_updates" value="-1"><srai>check security updates</srai></condition><condition><li name="num_sec_updates" value="No">No</li><li>Yes, there are <get name="num_sec_updates"/> security updates needed</li></condition></template></category>
+<category><pattern>BOOLEAN SECURITY UPDATES NEEDED</pattern><template><condition name="num_sec_updates" value="-1"><srai>check security updates</srai></condition><condition><li name="num_sec_updates" value="No">no</li><li>yes</li></condition></template></category>
+
+<category><pattern>ARE THERE UPDATES *</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>ARE THERE SECURITY UPDATES *</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>DO I NEED UPDATES</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DO I NEED SECURITY UPDATES</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>ARE UPDATES NEEDED</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>ARE SECURITY UPDATES NEEDED</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>ARE UPDATES AVAILABLE</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>ARE SECURITY UPDATES AVAILABLE</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>ARE ANY UPDATES NEEDED</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>ARE ANY SECURITY UPDATES NEEDED</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>DO I NEED TO DO UPDATES</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DO I NEED TO DO SECURITY UPDATES</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>DO I NEED TO DO ANY UPDATES</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DO I NEED TO DO ANY SECURITY UPDATES</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>DO ANY PACKAGES NEED UPDATING</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DO ANY PACKAGES NEED SECURITY UPDATING</pattern><template><srai>are there security updates</srai></template></category>
+<category><pattern>DOES ANYTHING NEED UPDATING</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DOES ANYTHING NEED SECURITY UPDATING</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DO ANY PACKAGES NEED UPDATES</pattern><template><srai>are there updates</srai></template></category>
+<category><pattern>DO ANY PACKAGES NEED SECURITY UPDATES</pattern><template><srai>are there security updates</srai></template></category>
+
+<!-- what kind of updates are needed -->
+<!-- can you fix it -->
+<!-- do the update -->
+<category><pattern>APPLY SECURITY UPDATES</pattern><template><think><system>dnf --security -C -y update 2>/dev/null</system><set name="num_sec_updates">-1</set></think>updates applied</template></category>
+<!-- CAN YOU RECHECK -->
+<!-- did that fix everyting -->
+<!-- does anything need restarting -->
+<!-- TELL ME ABOUT UPDATES -->
+
+</aiml>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Redirections for details -->
+
+<category><pattern>SECURITY UPDATES WHY</pattern><template>To be secure, security updates are available that must be applied.</template></category> 
+<category><pattern>SCAP SCAN WHY</pattern><template><condition><li name="scap_scan" value="fail"><srai>scap scan problem details</srai> has the wrong setting</li><li>the system passes the policy scan</li></condition></template></category>
+<category><pattern>INTEGRITY SCAN WHY</pattern><template><condition><li name="int_scan" value="fail"><srai>integrity scan problem details</srai></li><li>the system passes the policy scan</li></condition></template></category>
+<category><pattern>SELINUX WHY</pattern><template><condition><li name="problem" value="selinux enabled"><srai>selinux enabled problem details</srai></li><li name="problem" value="selinux enforcement"><srai>selinux enforcement problem details</srai></li><li>the system passes selinux checks</li></condition></template></category>
+
+<category><pattern>WHY</pattern><template><condition><li name="subject" value="scap scan"><srai>scap scan why</srai></li><li name="subject" value="integrity"><srai>integrity scan why</srai></li><li name="subject" value="security updates"><srai>security updates why</srai></li><li name="subject" value="selinux"><srai>selinux why</srai></li><li>I don't understand the context</li></condition></template></category>
+
+<category><pattern>DETAILS</pattern><template><srai>why</srai></template></category>
+<category><pattern>ANY DETAILS</pattern><template><srai>why</srai></template></category>
+<category><pattern>EXPLAIN</pattern><template><srai>why</srai></template></category>
+<category><pattern>PLEASE EXPLAIN</pattern><template><srai>why</srai></template></category>
+<category><pattern>CAN YOU PLEASE EXPLAIN</pattern><template><srai>why</srai></template></category>
+
+</aiml>

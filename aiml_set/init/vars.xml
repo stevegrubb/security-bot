@@ -1,0 +1,22 @@
+<vars>
+ <set name="aimlpath">/home/sgrubb/test/security-bot/aiml_set/security</set>
+ <set name="num_updates">-1</set>
+ <set name="num_sec_updates">-1</set>
+ <set name="scap_scan"> </set>
+
+ <!-- used to track "it" -->
+ <set name="subject"> </set>
+
+ <!-- something that needs checking -->
+ <set name="issue"> </set>
+
+ <!-- yes/no are we secure or have problems -->
+ <set name="secure"> </set>
+ <!-- area found to have a problem -->
+ <set name="problem"> </set>
+ <!-- verbose explanation of problem -->
+ <set name="explanation"> </set>
+
+ <!-- explanation of what was done to fix -->
+ <set name="action"> </set>
+</vars>

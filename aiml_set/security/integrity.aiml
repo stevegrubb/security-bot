@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Integrity specific -->
+
+<!-- # aide -c utils/aide.conf -i -->
+<!-- # mv utils/aide/aide.db.new.gz utils/aide/aide.db.gz -->
+<!-- # aide -c utils/aide.conf -C -->
+
+
+<!-- SET INTEGRITY NOW -->
+<category><pattern>REBASE INTEGRITY</pattern><template><system>/sbin/aide -c utils/aide.conf -i; mv utils/aide/aide.db.new.gz utils/aide/aide.db.gz</system>Integrity database is reset<think><set name="subject">integrity</set></think></template></category>
+<category><pattern>SET INTEGRITY</pattern><template><srai>rebase integrity</srai></template></category>
+<category><pattern>SET INTEGRITY NOW</pattern><template><srai>rebase integrity</srai></template></category>
+<category><pattern>RESET INTEGRITY</pattern><template><srai>rebase integrity</srai></template></category>
+
+<!-- CHECK INTEGRITY-->
+<category><pattern>INTEGRITY SCAN</pattern><template><set name="int_scan"><system>/home/sgrubb/test/security-bot/helpers/aide --scan</system></set><think><set name="subject">integrity</set></think></template></category>
+<category><pattern>CHECK INTEGRITY SCAN</pattern><template><condition><li name="int_scan" value=" "><srai>integrity scan</srai></li></condition></template></category>
+
+<category><pattern>BOOLEAN INTEGRITY SCAN</pattern><template><think><condition name="int_scan" value=" "><srai>check integrity scan</srai></condition></think><condition><li name="int_scan" value="fail">no</li><li>yes</li></condition></template></category>
+
+<!-- INTEGRITY STATUS -->
+<category><pattern>INTEGRITY STATUS</pattern><template><think><condition name="int_scan" value=" "><srai>check integrity scan</srai></condition></think><condition><li name="int_scan" value="fail">There are problems</li><li>It's OK</li></condition></template></category>
+<category><pattern>WHAT IS THE INTEGRITY STATUS</pattern><template><srai>integrity status</srai></template></category>
+
+<category><pattern>NBOOLEAN INTEGRITY SCAN</pattern><template><think><condition name="int_scan" value=" "><srai>check integrity scan</srai></condition></think><condition><li name="int_scan" value="pass">no</li><li>yes</li></condition></template></category>
+
+<!-- HAS INTEGRITY BEEN SCANNED -->
+<category><pattern>HAS THE INTEGRITY BEEN SCANNED</pattern><template><condition><li name="int_scan" value=" ">no</li><li>yes</li></condition><think><set name="subject">integrity</set></think></template></category>
+<!-- HAS INTEGRITY BEEN CHECKED -->
+<category><pattern>HAS INTEGRITY BEEN CHECKED</pattern><template><srai>has the integrity been scanned</srai></template></category>
+
+<!-- HAS INTEGRITY BEEN SCANNED RECENTLY -->
+<category><pattern>HAS THE INTEGRITY BEEN SCANNED RECENTLY</pattern><template><srai>has the integrity been scanned</srai></template></category>
+<!-- HAS INTEGRITY BEEN CHECKED RECENTLY -->
+<category><pattern>HAS THE INTEGRITY BEEN CHECKED RECENTLY</pattern><template><srai>has the integrity been scanned</srai></template></category>
+
+<!-- WHEN WAS INTEGRITY SCANNED -->
+<category><pattern>WHEN WAS INTEGRITY SCANNED</pattern><template><condition><li name="int_scan" value=" ">it hasn't been scanned yet</li><li>recently</li></condition></template></category>
+
+<!-- WHEN WAS INTEGRITY CHECKED -->
+<category><pattern>WHEN WAS INTEGRITY CHECKED</pattern><template><srai>when was integrity scanned</srai></template></category>
+<!-- WHEN WAS THE INTEGRITY LAST SCANNED -->
+<category><pattern>WHEN WAS THE INTEGRITY LAST SCANNED</pattern><template><srai>when was integrity scanned</srai></template></category>
+<!-- WHEN WAS THE INTEGRITY LAST CHECKED -->
+<category><pattern>WHEN WAS THE INTEGRITY LAST CHECKED</pattern><template><srai>when was integrity scanned</srai></template></category>
+
+<!-- INTEGRITY SCAN NOW -->
+<category><pattern>INTEGRITY SCAN NOW</pattern><template><srai>integrity scan</srai></template></category>
+
+<!-- CHECK INTEGRITY NOW -->
+<category><pattern>CHECK INTEGRITY NOW</pattern><template><srai>integrity scan</srai></template></category>
+
+<!-- REFRESH INTEGRITY SCAN -->
+<!-- IS INTEGRITY OK -->
+<category><pattern>IS INTEGRITY OK</pattern><template><srai>boolean integrity scan</srai></template></category>
+
+<!-- IS THE INTEGRITY OK -->
+<category><pattern>IS THE INTEGRITY OK</pattern><template><srai>is integrity ok</srai></template></category>
+<category><pattern>IS THE INTEGRITY SCAN OK</pattern><template><srai>is integrity ok</srai></template></category>
+<!-- IS SYSTEM INTEGRITY OK -->
+<category><pattern>IS SYSTEM INTEGRITY OK</pattern><template><srai>is integrity ok</srai></template></category>
+<!-- IS THE SYSTEM INTEGRITY OK -->
+<category><pattern>IS THE SYSTEM INTEGRITY OK</pattern><template><srai>is integrity ok</srai></template></category>
+<!-- ARE THERE PROBLEMS WITH INTEGRITY -->
+<category><pattern>ARE THERE PROBLEMS WITH INTEGRITY</pattern><template><srai>nboolean integrity scan</srai></template></category>
+<category><pattern>ARE THERE PROBLEMS WITH THE INTEGRITY SCAN</pattern><template><srai>nboolean integrity scan</srai></template></category>
+<!-- ARE THERE PROBLEMS WITH SYSTEM INTEGRITY -->
+<category><pattern>ARE THERE PROBLEMS WITH SYSTEM INTEGRITY</pattern><template><srai>are there problems with integrity</srai></template></category>
+<!-- ARE THERE PROBLEMS WITH THE SYSTEM INTEGRITY -->
+<category><pattern>ARE THERE PROBLEMS WITH THE SYSTEM INTEGRITY</pattern><template><srai>are there problems with integrity</srai></template></category>
+
+<!-- INTERGRITY SCAN PROBLEM DETAILS -->
+<category><pattern>INTEGRITY SCAN PROBLEM DETAILS</pattern><template><system>/home/sgrubb/test/security-bot/helpers/aide --explain</system><think><set name="subject">integrity</set></think></template></category>
+
+<!-- HAVE FILES CHANGED -->
+<category><pattern>INTEGRITY SCAN CHANGED</pattern><template><system>/home/sgrubb/test/security-bot/helpers/aide --changed</system><think><set name="subject">integrity</set></think></template></category>
+<category><pattern>BOOLEAN INTEGRITY SCAN CHANGED</pattern><template><think><set name="retval"><srai>integrity scan changed</srai></set></think><condition><li name="retval" value="0">no</li><li>yes</li></condition></template></category>
+<category><pattern>HAVE FILES CHANGED</pattern><template><condition><li name="int_scan" value=" "><think><srai>integrity scan</srai></think></li></condition><condition><li name="int_scan" value="fail"><srai>boolean integrity scan changed</srai></li></condition></template></category>
+<category><pattern>ARE THERE CHANGED FILES</pattern><template><srai>have files changed</srai></template></category>
+
+<!-- WHAT FILES CHANGED -->
+<category><pattern>BOOLEAN INTEGRITY SCAN WHAT CHANGED</pattern><template><think><set name="retval"><srai>integrity scan changed</srai></set></think><condition><li name="retval" value="0">none</li><li><system>/home/sgrubb/test/security-bot/helpers/aide --changed-files</system></li></condition></template></category>
+<category><pattern>WHAT FILES CHANGED</pattern><template><condition><li name="int_scan" value=" "><think><srai>integrity scan</srai></think></li></condition><condition><li name="int_scan" value="fail"><srai>boolean integrity scan what changed</srai></li></condition></template></category>
+<category><pattern>WHICH FILES CHANGED</pattern><template><srai>what files changed</srai></template></category>
+
+<category><pattern>HOW MANY FILES CHANGED</pattern><template><condition><li name="int_scan" value=" "><think><srai>integrity scan</srai></think></li></condition><condition><li name="int_scan" value="fail"><srai>integrity scan changed</srai></li></condition></template></category>
+<category><pattern>HOW MANY FILES ARE CHANGED</pattern><template><srai>how many files changed</srai></template></category>
+<category><pattern>HOW MANY CHANGED FILES ARE THERE</pattern><template><srai>how many files changed</srai></template></category>
+
+<!-- HAVE FILES BEEN ADDED -->
+<category><pattern>INTEGRITY SCAN NEW</pattern><template><system>/home/sgrubb/test/security-bot/helpers/aide --new</system><think><set name="subject">integrity</set></think></template></category>
+<category><pattern>BOOLEAN INTEGRITY SCAN NEW</pattern><template><think><set name="retval"><srai>integrity scan new</srai></set></think><condition><li name="retval" value="0">no</li><li>yes</li></condition></template></category>
+<category><pattern>HAVE FILES BEEN ADDED</pattern><template><condition><li name="int_scan" value=" "><think><srai>integrity scan</srai></think></li></condition><condition><li name="int_scan" value="fail"><srai>boolean integrity scan new</srai></li></condition></template></category>
+
+<!-- ARE THERE NEW FILES -->
+<category><pattern>ARE THERE NEW FILES</pattern><template><srai>have files been added</srai></template></category>
+
+<!-- WHAT FILES HAVE BEEN ADDED -->
+<category><pattern>BOOLEAN INTEGRITY SCAN WHAT NEW</pattern><template><think><set name="retval"><srai>integrity scan new</srai></set></think><condition><li name="retval" value="0">none</li><li><system>/home/sgrubb/test/security-bot/helpers/aide --new-files</system></li></condition><think><set name="subject">integrity</set></think></template></category>
+<!-- WHAT FILES ARE NEW -->
+<category><pattern>WHAT FILES ARE NEW</pattern><template><condition><li name="int_scan" value=" "><think><srai>integrity scan</srai></think></li></condition><condition><li name="int_scan" value="fail"><srai>boolean integrity scan what new</srai></li></condition></template></category>
+<category><pattern>WHICH FILES ARE NEW</pattern><template><srai>what files are new</srai></template></category>
+<!-- HOW MANY FILES ARE NEW -->
+<category><pattern>HOW MANY FILES ARE NEW</pattern><template><condition><li name="int_scan" value=" "><think><srai>integrity scan</srai></think></li></condition><condition><li name="int_scan" value="fail"><srai>integrity scan new</srai></li></condition></template></category>
+<category><pattern>HOW MANY NEW FILES ARE THERE</pattern><template><srai>how many files are new</srai></template></category>
+
+<!-- TELL ME ABOUT INTEGRITY -->
+</aiml>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- SE Linux specific -->
+
+<!-- SE Linux status -->
+<category><pattern>SELINUX STATUS</pattern><template>Getting SE Linux status. <system>/sbin/sestatus</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>SHOW SELINUX STATUS</pattern><template><srai>selinux status</srai></template></category>
+<category><pattern>SHOW ME SELINUX STATUS</pattern><template><srai>selinux status</srai></template></category>
+<category><pattern>SHOW ME THE SELINUX STATUS</pattern><template><srai>selinux status</srai></template></category>
+
+<!-- Is SE Linux on -->
+<category><pattern>IS SELINUX ON</pattern><template><system>if [[ `sestatus | grep 'SELinux status' | grep enabled` ]] ; then  echo "yes" ; else echo "no" ; fi</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>IS SELINUX ENABLED</pattern><template><srai>is selinux on</srai></template></category>
+<category><pattern>IS SELINUX RUNNING</pattern><template><srai>is selinux on</srai></template></category>
+
+<!-- Is SE Linux permissive -->
+<category><pattern>IS SELINUX PERMISSIVE</pattern><template><system>if [[ `sestatus | grep mode | grep permissive` ]] ; then  echo "yes" ; else echo "no" ; fi</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>IS SELINUX IN PERMISSIVE</pattern><template><srai>is selinux permissive</srai></template></category>
+<category><pattern>IS SELINUX IN PERMISSIVE *</pattern><template><srai>is selinux permissive</srai></template></category>
+
+<!-- Is SE Linux off -->
+<category><pattern>IS SELINUX OFF</pattern><template><system>if [[ `sestatus | grep 'SELinux status' | grep disabled` ]] ; then  echo "yes" ; else echo "no" ; fi</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>IS SELINUX DISABLED</pattern><template><srai>is selinux off</srai></template></category>
+
+<!-- Is SE Linux enforcing -->
+<category><pattern>IS SELINUX ENFORCING</pattern><template><system>if [[ `sestatus | grep mode | grep enforcing` ]] ; then  echo "yes" ; else echo "no" ; fi</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>IS SELINUX IN ENFORCING</pattern><template><srai>is selinux enforcing</srai></template></category>
+<category><pattern>IS SELINUX IN ENFORCING *</pattern><template><srai>is selinux enforcing</srai></template></category>
+
+<category><pattern>SELINUX MODE</pattern><template><system>sestatus | grep mode | awk '{ print $3 }'</system><think><set name="subject">selinux</set></think></template></category>
+
+<!-- Is SE Linux working -->
+<category><pattern>IS SELINUX WORKING</pattern><template><system>if [[ ! `sestatus | grep 'SELinux status' | grep enabled` ]] || [[ ! `sestatus | grep mode | grep enforcing` ]]; then  echo "no" ; else echo "yes" ; fi</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>IS SELINUX OK</pattern><template><srai>is selinux working</srai></template></category>
+
+<!-- Enable SE Linux -->
+<category><pattern>ENABLE SELINUX</pattern><template>It is now enforcing.<system>setenforce 1</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>TURN SELINUX ON</pattern><template><srai>enable selinux</srai></template></category>
+<category><pattern>MAKE SELINUX ENABLED</pattern><template><srai>enable selinux</srai></template></category>
+<category><pattern>SELINUX ENFORCING</pattern><template><srai>enable selinux</srai></template></category>
+<category><pattern>SET SELINUX ENFORCING</pattern><template><srai>enable selinux</srai></template></category>
+
+<!-- Disable SE Linux -->
+<category><pattern>DISABLE SELINUX</pattern><template>It is now permissive.<system>setenforce 0</system><think><set name="subject">selinux</set></think></template></category>
+<category><pattern>TURN SELINUX OFF</pattern><template><srai>disable selinux</srai></template></category>
+<category><pattern>SELINUX OFF</pattern><template><srai>disable selinux</srai></template></category>
+<category><pattern>SET SELINUX OFF</pattern><template><srai>disable selinux</srai></template></category>
+
+<category><pattern>SELINUX ENABLED PROBLEM DETAILS</pattern><template>SE Linux was expected to be enabled, but it was detected as not being enabled.</template></category>
+<category><pattern>SELINUX ENFORCEMENT PROBLEM DETAILS</pattern><template>SE Linux was expected to be in enforcing mode, but it was detected as not being in enforcing mode.</template></category>
+
+
+<!-- WHAT IS SELINUX -->
+<!-- WHY DO I CARE -->
+<!-- TELL ME ABOUT SELINUX -->
+
+</aiml>
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Security knowlege -->
+
+<!-- check updates -->
+<category><pattern>assess 1</pattern><template>
+<think><set name="retval"><srai>boolean security updates needed</srai></set></think><condition>
+<li name="retval" value="yes"><set name="secure">no</set><set name="problem">updates</set><set name="explanation">security updates are needed</set></li>
+<li><srai>assess 2</srai></li></condition></template></category>
+
+<!-- check system configuration-->
+<category><pattern>assess 2</pattern><template>
+<think><set name="retval"><srai>scap scan</srai></set></think><condition>
+<li name="retval" value="fail">
+<set name="secure">no</set>
+<set name="problem">system configuration</set>
+<set name="explanation">the system is not configured to policy</set></li>
+<li><srai>assess 3</srai></li></condition></template></category>
+
+<!-- check selinux enabled -->
+<category><pattern>assess 3</pattern><template>
+<think><set name="retval"><srai>is selinux enabled</srai></set></think><condition>
+<li name="retval" value="no"><set name="secure">no</set><set name="problem">selinux enabled</set><set name="explanation">selinux is not enabled</set></li>
+<li><srai>assess 4</srai></li></condition></template></category>
+
+<!-- check selinux enforcement-->
+<category><pattern>assess 4</pattern><template>
+<think><set name="retval"><srai>is selinux enforcing</srai></set></think><condition>
+<li name="retval" value="no"><set name="secure">no</set><set name="problem">selinux enforcement</set><set name="explanation">selinux is not in enforcing mode</set></li>
+<li><srai>assess 5</srai></li></condition></template></category>
+
+<!-- check system integrity -->
+<category><pattern>assess 5</pattern><template>
+<think><set name="retval"><srai>integrity scan</srai></set></think><condition>
+<li name="retval" value="fail"><set name="secure">no</set><set name="problem">integrity</set><set name="explanation">the system is integrity has changed</set></li>
+<li>no</li></condition></template></category>
+
+
+<category><pattern>assess top level</pattern><template><think>
+<!-- clear variables -->
+<set name="secure"> </set>
+<set name="problem"> </set>
+<set name="explanation"> </set>
+<set name="action"> </set>
+<srai>assess 1</srai>
+</think>
+<condition><li name="secure" value=" ">probably</li><li>no, <get name="explanation"/></li></condition>
+</template></category>
+
+<category><pattern>WHAT IS THE SECURITY STATUS</pattern><template>
+is selinux enabled, <srai>is selinux enabled</srai>
+is selinux enforcing, <srai>is selinux enforcing</srai>
+is audit working, <srai>is audit working</srai>
+</template></category>
+<category><pattern>WHAT IS THE CURRENT SECURITY STATUS</pattern><template><srai>what is the security status</srai></template></category>
+<category><pattern>WHAT IS THE CURRENT SECURITY POSTURE</pattern><template><srai>WHAT IS THE CURRENT SECURITY STATUS</srai></template></category>
+<category><pattern>SECURITY SUMMARY</pattern><template><srai>WHAT IS THE CURRENT SECURITY STATUS</srai></template></category>
+<category><pattern> * SECURITY SUMMARY</pattern><template><srai>WHAT IS THE CURRENT SECURITY STATUS</srai></template></category>
+
+<!-- IS THIS SYSTEM SECURE -->
+<category><pattern>IS THE COMPUTER SECURE</pattern><template><srai>assess top level</srai></template></category>
+<category><pattern>IS THIS COMPUTER SECURE</pattern><template><srai>assess top level</srai></template></category>
+<category><pattern>IS THE SYSTEM SECURE</pattern><template><srai>assess top level</srai></template></category>
+<category><pattern>IS THIS SYSTEM SECURE</pattern><template><srai>assess top level</srai></template></category>
+<category><pattern>IS THE COMPUTER SYSTEM SECURE</pattern><template><srai>assess top level</srai></template></category>
+<category><pattern>IS THIS COMPUTER SYSTEM SECURE</pattern><template><srai>assess top level</srai></template></category>
+<category><pattern>IS THIS SYSTEM LOCKED DOWN</pattern><template><srai>assess top level</srai></template></category>
+
+<!-- TELL ME ABOUT SECURITY -->
+<!-- TELL ME ABOUT COMPUTER SECURITY -->
+
+</aiml>
+

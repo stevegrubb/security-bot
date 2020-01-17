@@ -1,0 +1,13 @@
+#!/bin/sh
+
+##oscap xccdf eval --profile common --results results.xml --report results.html --cpe /usr/share/xml/scap/ssg/fedora/ssg-fedora-cpe-dictionary.xml /usr/share/xml/scap/ssg/fedora/ssg-fedora-xccdf.xml
+
+rm -f tmp/results.txt
+oscap xccdf eval --profile common --cpe /usr/share/xml/scap/ssg/fedora/ssg-fedora-cpe-dictionary.xml  /home/sgrubb/test/security-bot/utils/ssg-fedora-xccdf.xml > tmp/results.txt
+
+if [ $? -ne 0 ] ; then
+	echo -n "fail"
+else
+	echo -n "pass"
+fi
+

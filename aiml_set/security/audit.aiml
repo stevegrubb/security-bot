@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Audit specific -->
+<category><pattern>AUDIT STATUS</pattern><template>Starting auditctl.<system>/sbin/auditctl -s</system><think><set name="subject">audit</set></think></template></category>
+
+<!-- Audit enabled -->
+<category><pattern>IS AUDIT ENABLED</pattern><template><system>if [[ `auditctl -s | grep enabled | grep 1` ]] ; then  echo "yes" ; else echo "no" ; fi</system><think><set name="subject">audit</set></think></template></category>
+<category><pattern>IS AUDIT SYSTEM ENABLED</pattern><template><srai>is audit enabled</srai></template></category>
+
+<!-- Audit rules -->
+<category><pattern>DOES AUDIT HAVE RULES</pattern><template><system>if [[ `auditctl -l | wc -l ` -gt 1 ]] ; then  echo "yes" ; else echo "no" ; fi</system><think><set name="subject">audit</set></think></template></category>
+<category><pattern>DOES AUDIT HAVE RULES LOADED</pattern><template><srai>does audit have rules</srai></template></category>
+
+<!-- Audit working -->
+<category><pattern>IS AUDIT WORKING</pattern><template><system>if [[ ! `auditctl -l | wc -l ` -gt 1 ]] || [[ ! `auditctl -s | grep enabled | grep 1` ]] ; then  echo "no" ; else echo "yes" ; fi</system><think><set name="subject">audit</set></think></template></category>
+<category><pattern>IS AUDIT RUNNING</pattern><template><srai>is audit working</srai></template></category>
+<category><pattern>IS AUDIT ON</pattern><template><srai>is audit working</srai></template></category>
+
+<!-- ARE THERE AVCS -->
+<!-- ARE THERE ANY AVCS -->
+<!-- HAS THERE BEEN ANY AVCS -->
+
+<!-- HAS ANYONE LOGGED IN -->
+<!-- IS ANYONE LOGGED IN -->
+<!-- HOW MANY PEOPLE ARE LOGGED IN -->
+<!-- HOW MANY SESSIONS ARE RUNNING -->
+<!-- HOW MANY USER SESSIONS ARE RUNNING -->
+
+<!-- WHAT IS THE AUDIT SYSTEM -->
+<!-- WHY DO I CARE -->
+<!-- TELL ME ABOUT THE AUDIT SYSTEM -->
+
+</aiml>
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1 http://aitools.org/aiml/schema/AIML.xsd">
+
+<!-- Free software (c) 2014 sgrubb@redhat.com   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+
+<!-- Config specific -->
+<category><pattern>SCAP STATUS</pattern><template><srai>scap scan</srai></template></category>
+
+<!-- HAS THE SYSTEM BEEN SCANNED -->
+<category><pattern>HAS THE SYSTEM BEEN SCANNED</pattern><template><condition><li name="scap_scan" value=" ">no</li><li>yes</li></condition></template></category>
+<category><pattern>HAS THE CONFIGURATION BEEN SCANNED</pattern><template><condition><li name="scap_scan" value=" ">no</li><li>yes</li></condition></template></category>
+
+<!-- HAS THE SYSTEM BEEN SCANNED RECENTLY -->
+<category><pattern>HAS THE SYSTEM CONFIGURATION BEEN SCANNED RECENTLY</pattern><template><srai>has the configuration been scanned</srai></template></category>
+<category><pattern>HAS THE CONFIGURATION BEEN SCANNED RECENTLY</pattern><template><srai>has the configuration been scanned</srai></template></category>
+
+<!-- WHEN WAS THE SYSTEM SCANNED -->
+<category><pattern>WHEN WAS THE CONFIGURATION SCANNED</pattern><template><condition><li name="scap_scan" value=" ">it hasn't been scanned yet</li><li>recently</li></condition></template></category>
+<category><pattern>WHEN WAS THE CONFIGURATION SCANNED</pattern><template><srai>when was the configuration scanned</srai></template></category>
+
+<!-- WHEN WAS THE SYSTEM LAST SCANNED -->
+<category><pattern>WHEN WAS THE CONFIGURATION LAST SCANNED</pattern><template><srai>when was the configuration scanned</srai></template></category>
+<category><pattern>WHEN WAS THE CONFIGURATION LAST SCANNED</pattern><template><srai>when was the configuration scanned</srai></template></category>
+<category><pattern>WHEN WAS THE SYSTEM CONFIGURATION LAST SCANNED</pattern><template><srai>when was the configuration scanned</srai></template></category>
+<!-- SCAN NOW -->
+<category><pattern>SCAP SCAN</pattern><template><set name="scap_scan"><system>/home/sgrubb/test/security-bot/helpers/scap-scan</system></set><think><set name="subject">scap scan</set></think></template></category>
+<category><pattern>CHECK SCAP SCAN</pattern><template><condition><li name="scap_scan" value=" "><srai>scap scan</srai></li></condition></template></category>
+
+<category><pattern>BOOLEAN SCAP SCAN</pattern><template><think><condition name="scap_scan" value=" "><srai>check scap scan</srai></condition></think><condition><li name="scap_scan" value="fail">no</li><li>yes</li></condition></template></category>
+
+<category><pattern>NBOOLEAN SCAP SCAN</pattern><template><think><condition name="scap_scan" value=" "><srai>scap scan</srai></condition></think><condition><li name="scap_scan" value="pass">no</li><li>yes</li></condition></template></category>
+
+<!-- REFRESH THE SCAN -->
+<category><pattern>REFRESH THE SCAN</pattern><template><srai>scap scan</srai></template></category> 
+
+<!-- IS THE SCAP SCAN OK -->
+<category><pattern>IS THE SCAP SCAN OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<!-- IS THE SYSTEM CONFIG OK -->
+<category><pattern>IS SCAP SCAN OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE CONFIG OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE CONFIGURATION OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE CONFIG SCAN OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE CONFIGURATION SCAN OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE SYSTEM CONFIG OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE SYSTEM CONFIGURATION OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>WAS THE CONFIG SCAN OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>WAS THE CONFIGURATION SCAN OK</pattern><template><srai>boolean scap scan</srai></template></category>
+<category><pattern>IS THE SYSTEM IN CONFIG</pattern><template><srai>boolean scap scan</srai></template></category>
+<!-- ARE THERE PROBLEMS WITH THE SYSTEM CONFIG -->
+<category><pattern>ARE THERE PROBLEMS WITH THE SYSTEM CONFIG</pattern><template><srai>nboolean scap scan</srai></template></category>
+<category><pattern>ARE THERE PROBLEMS WITH THE CONFIG SCAN</pattern><template><srai>nboolean scap scan</srai></template></category>
+<!-- ARE THERE PROBLEMS WITH THE SYSTEM CONFIGURATION -->
+<category><pattern>ARE THERE PROBLEMS WITH THE SYSTEM CONFIGURATION</pattern><template><srai>nboolean scap scan</srai></template></category>
+<category><pattern>WERE THERE PROBLEMS WITH THE CONFIG SCAN</pattern><template><srai>nboolean scap scan</srai></template></category>
+<category><pattern>WERE THERE PROBLEMS IN THE CONFIG SCAN</pattern><template><srai>nboolean scap scan</srai></template></category>
+
+<!-- SCAP SCAN PROBLEM DETAILS -->
+<category><pattern>SCAP SCAN PROBLEM DETAILS</pattern><template><system>/home/sgrubb/test/security-bot/helpers/scap-extract</system><think><set name="subject">scap scan</set></think></template></category>
+
+<!-- TELL ME ABOUT SCAP -->
+</aiml>
+
