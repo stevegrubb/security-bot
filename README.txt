@@ -7,6 +7,8 @@ To build the project run:
 /usr/bin/qmake-qt4 -o Makefile security-bot.pro
 
 Then make
+
+and finally as root
 ./security-bot
 
 You can then ask questions and it will answer. When you are done, type quit.
