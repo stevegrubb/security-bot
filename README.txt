@@ -1,5 +1,10 @@
 SECURITY-BOT
 
+This is the code that was demonstrated at the DevConf 2015 conference
+Speech is here:    https://www.youtube.com/watch?v=PUpKwtvHXwg&t=15s
+The idea was to AIML to chat with the system to discover any security
+issues.
+
 BUILDING
 ========
 To build the project run:
